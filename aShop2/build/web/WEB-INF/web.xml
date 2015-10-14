@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <filter>
+        <filter-name>NewFilter</filter-name>
+        <filter-class>filter.NewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>NewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>Lshop</servlet-name>
+        <servlet-class>main.Lshop</servlet-class>
+    </servlet>
+<!--    <servlet>
+        <servlet-name>ProcessDB</servlet-name>
+        <servlet-class>BASE.ProcessDB</servlet-class>
+    </servlet>-->
+    <servlet>
+        <servlet-name>WorkingBas</servlet-name>
+        <servlet-class>dbase.WorkingBas</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Lshop</servlet-name>
+        <url-pattern>/Lshop</url-pattern>
+    </servlet-mapping>
+<!--    <servlet-mapping>
+        <servlet-name>ProcessDB</servlet-name>
+        <url-pattern>/ProcessDB</url-pattern>
+    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>WorkingBas</servlet-name>
+        <url-pattern>/WorkingBas</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>
+        aShop
+        </web-resource-name>
+            <url-pattern>/eventCheck.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>tomcat</role-name>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <!--<auth-method>BASIC</auth-method>-->
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/eventError.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+   
+
+</web-app>

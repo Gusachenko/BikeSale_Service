@@ -1,0 +1,201 @@
+@charset "UTF-8";
+body {
+    background-color:Window;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+   #header { /* Верхний блок */
+    background: #00adff ; /* Цвет фона */
+    padding: 5px; /* Поля вокруг текста */
+    height:45px;
+    color:Purple;
+   }
+   #header .headSpan{
+       float:left;
+       /*margin-top:-13px;*/
+       line-height: 40%;
+       margin:0px 5px 0px 0px;
+   }
+    #header .selectLangDiv{
+    float:right;
+    /*position:relative;
+    top:-30px;*/
+    width:100px;
+    margin: 10px 5px 20px 5%; /* Значения отступов */
+    padding: 5px; /* Поля вокруг текста */
+    /*border: 1px solid #333;*/ /* Параметры рамки */
+   }
+   
+   #header .selectLangDiv form{
+       width:24px;
+       float:left;
+       margin:3px;
+   }
+   
+   #header .selectLangDiv input.langRuIn,.langUsIn,.langChIn{
+    width:22px;
+    height:11px;
+    background:url("../langico/russia.gif");
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: 0px;
+    background-color: transparent;
+    background-size: contain;
+    cursor: pointer;
+    outline: 0;
+    cursor: pointer;    
+   }
+   
+   .langUsIn{
+       background:url("../langico/united-states.gif") ;
+   }
+   .langChIn{
+       background:url("../langico/pr-china.gif") ;
+   }
+   
+   #header .selectLangDiv input.langRuIn:hover,.langUsIn:hover,.langChIn:hover{
+       -webkit-transform: scale(1.2, 1.2);
+       transform:scale(1.2,1.2);
+   }
+   
+    
+   
+   #content { /* Правая колонка */
+    float:left;  
+    width: 28%; /* Ширина колонки */
+    margin: 10px 5px 20px 0%;  /*Значения отступов*/ 
+    padding: 5px; /* Поля вокруг текста */
+    /*border: 1px solid #333;*/ /* Параметры рамки */
+   }
+   #content .description{
+    position:relative;
+    margin: 10px 5px 20px 5%; /* Значения отступов */
+    padding: 5px; /* Поля вокруг текста */
+    /*border: 1px solid Purple;*/  
+   }
+   
+   
+   #info{
+	width: 300px;
+	/*border: 1px solid #999;*/
+	padding: 0 10px;
+    }
+    #info span,p {
+            width: inherit;
+            background-color: inherit;
+            /*float:left;*/
+    }
+   
+    #info-nav{
+            margin: 0;
+            padding: 3px 0;
+            width: 100%;
+            list-style: none;
+    }
+    #info-nav li{
+            display: inline;
+            /*float:left;*/
+            background: #ccc;
+            border: 1px solid Purple;
+            border-bottom:0;
+            margin-right:2px;
+            /*margin-bottom:3px;*/
+            padding: 3px;
+    }
+    #info-nav li a{
+            text-decoration:none;
+    }
+    #info-nav li a:hover{
+            color:#00adff;
+    }
+    #info-nav li.current{ 
+            background: #fff;
+            padding-bottom: 4px;
+      
+    }
+   
+   
+   
+   #content .addOrder{
+    position:relative;
+    margin: 10px 5px 20px 0%; /* Значения отступов */
+    padding: 5px; /* Поля вокруг текста */
+    /*border: 1px solid #333;*/ /* Параметры рамки */
+   }
+   #content .addOrder button{
+   color:Purple;
+   
+    width:150px;
+    height:30px;
+    font-weight:bold;
+    /*background:url("../photoOfGoods/russia.gif");*/
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: 1px solid Purple;
+    background-color: transparent;
+    background-size: contain;
+    cursor: pointer;
+    outline: 0;
+    cursor: pointer;
+   }
+   
+   #cost {
+       color:Purple;
+       font-family: 'Arial Black';
+        text-decoration: none;
+        word-spacing: normal;
+        text-align: left;
+        letter-spacing: 0;
+        line-height: 1.5em;
+        font-size: 2em;
+       
+   }
+   
+.rouble {
+  display: inline-block;
+  position: relative;
+  
+  font-family:Arial;
+  font-size: 2em;
+  color:Purple;
+}
+
+.rouble:before {
+  display: block;
+  content: "–";
+  position: absolute;
+  top: 0.05em;
+}
+   
+   
+   #content .addOrder button:hover{
+-webkit-box-shadow: 4px 3px 7px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    4px 3px 7px rgba(50, 50, 50, 0.75);
+box-shadow:         4px 3px 7px rgba(50, 50, 50, 0.75);
+
+   }
+   #content .addOrder button:active{        
+        margin-top:5px;
+    }
+   
+   
+   #photoOfGoods { /* Левая колонка */
+    /*float: right;*/  /*Обтекание справа*/ 
+    /*border: 1px solid Purple;*/ /* Параметры рамки вокруг */  
+    padding: 5px; /* Поля вокруг текста */
+    margin: 10px 10px 20px 30%; /* Значения отступов */
+    color:purple;
+    
+    
+ 
+   }
+   
+   
+   .boxStealth {
+        margin-top:20px;
+	width: 100px;
+	height: 20px;
+	border: 3px dotted purple;
+        padding: 5px;
+	}
