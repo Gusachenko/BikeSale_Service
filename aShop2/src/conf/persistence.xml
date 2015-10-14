@@ -5,7 +5,7 @@
     <class>dbase.TOrdering</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:/home/huma/DevTools/DB/LiteDb/lbase.db"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db"/>
       <property name="javax.persistence.jdbc.password" value=""/>
       <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
       <property name="javax.persistence.jdbc.user" value=""/>

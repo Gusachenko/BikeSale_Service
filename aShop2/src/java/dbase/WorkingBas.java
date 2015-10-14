@@ -98,7 +98,7 @@ public static void addInDB(String userName_,String productTitle_,String shop_,in
         
         
         Class.forName("org.sqlite.JDBC");
-        c = DriverManager.getConnection("jdbc:sqlite:/home/huma/DevTools/DB/LiteDb/lbase.db");
+        c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
         c.setAutoCommit(false);
         System.out.println("Opened database successfully");
 
@@ -125,7 +125,7 @@ private void getElementDB(int element_key,PrintWriter out){
             try{
                 
                 Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:/home/huma/DevTools/DB/LiteDb/lbase.db");
+                c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
                 c.setAutoCommit(false);
                 System.out.println("Opened database successfully");
                 
@@ -210,7 +210,7 @@ private void getElementDB(int element_key,PrintWriter out){
                 
                 
                 Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:/home/huma/DevTools/DB/LiteDb/lbase.db");
+                c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
                 c.setAutoCommit(false);
                 System.out.println("Opened database successfully");
                 
@@ -295,7 +295,7 @@ public static void addInCommentsDB(String userName_,String text_Comment_){
                     
                     
                      Class.forName("org.sqlite.JDBC");
-        c = DriverManager.getConnection("jdbc:sqlite:/home/huma/DevTools/DB/LiteDb/lbase.db");
+        c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
         c.setAutoCommit(false);
         System.out.println("Opened database successfully");
 
@@ -333,7 +333,7 @@ public static List<TComments> getUserElement_CommentsDB(String userName_){
                 
                 
                 Class.forName("org.sqlite.JDBC");
-                c = DriverManager.getConnection("jdbc:sqlite:/home/huma/DevTools/DB/LiteDb/lbase.db");
+                c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
                 c.setAutoCommit(false);
                 System.out.println("Opened database successfully");
                 
