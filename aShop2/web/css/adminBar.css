@@ -1,0 +1,130 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 14, 2015, 5:44:47 PM
+    Author     : huma
+*/
+body{
+    background-color:Window;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+.admin_Main{
+    height: 600px;
+    width:100%;
+        
+    
+}
+
+
+/* CONTROL PANEL */
+.admin_Head_ControlPanel{
+    height: 20%;
+    width:98%;
+        
+    
+    margin: 1%;
+    padding: 5px;
+    
+    float: left;
+    
+    border: 1px solid #ccc;    
+}
+.admin_Head_ControlPanel_Control{
+    height: 80%;
+    width:5%;
+        
+    
+    margin: 1%;
+    padding: 5px;
+    
+    float: left;
+    
+    
+    
+}
+button.admin_Head_ControlPanel_Control_Add{
+    
+   font-size: 12px;
+   font-weight: bold;
+   
+   
+   height: 100%;
+   width:100%;
+   
+   padding:0px;
+}
+.admin_Head_ControlPanel_Panel{
+    height: 80%;
+    width:80%;
+        
+    
+    margin: 1%;
+    padding: 5px;
+    
+    float: left;
+    
+    border: 1px solid #ccc;
+    
+}
+.admin_Head_ControlPanel_Panel table{
+    width:100%;
+}
+
+
+.admin_Head_ControlPanel_Save{
+    height: 80%;
+    width:5%;
+        
+    
+    margin: 1%;
+    padding: 5px;
+    
+    float: left;
+    
+    
+    
+}
+
+
+/* TABLE */
+.admin_TableItems_body{
+    height: 60%;
+    width:98%;
+        
+    
+    margin: 1%;
+    padding: 5px;
+    
+    float: left;
+    
+    border: 1px solid purple; 
+    
+}
+
+.admin_TableItems_body table.admin_Table{
+
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.admin_TableItems_body tr.admin_titleTable_font{
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.admin_TableItems_body table.admin_Table td,tr,th{
+    border: 1px solid gray;
+    
+    
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:10px;
+    
+
+}

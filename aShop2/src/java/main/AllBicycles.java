@@ -35,6 +35,10 @@ public class AllBicycles {
         return null;
     }
     
+    public int getAllSize(){       
+        return bikes.size();
+    }
+    
     public static AllBicycles getInstance() {
         if (instance == null) {
             instance = new AllBicycles();
