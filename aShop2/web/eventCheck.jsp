@@ -173,7 +173,7 @@
                 <DIV class="div_Comments">
                     <p><fmt:message key="FEEDBACK_ABOUT" bundle="${bundle}"/></p>
                     
-                 <textarea placeholder="<fmt:message key="FEEDBACK_ABOUT" bundle="${bundle}"/>" rows="5" cols="45" name="text" id="comment-text"></textarea>
+                 <textarea placeholder="<fmt:message key="FEEDBACK_ABOUT" bundle="${bundle}"/>" maxlength="30" rows="5" cols="45" name="text" id="comment-text"></textarea>
                  
                  <br/>
                  <div class="addOrder">
@@ -197,7 +197,7 @@
 
                     <%
                         List<TOrdering> listUserItems=null;
-                        listUserItems=WorkingBas.getUserElementDB((String)pageContext.getAttribute("userName", PageContext.SESSION_SCOPE));
+                        listUserItems=WorkingBas.getUser_Order_ElementDB((String)pageContext.getAttribute("userName", PageContext.SESSION_SCOPE));
                     %>
                     <h2 align="center"><fmt:message key="AUTH_HISTORY" bundle="${bundle}"/>:</h2>
                     <div class="div_Ordering_List_Element">

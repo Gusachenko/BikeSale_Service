@@ -1,7 +1,10 @@
 package main;
 
 
+import dbase.TGoods;
+import dbase.WorkingBas;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AllBicycles {
     
@@ -12,17 +15,33 @@ public class AllBicycles {
     private AllBicycles() {
         bikes = new ArrayList<Bicycle>();
         
-        Bicycle bike0 = new Bicycle(0);
-        Bicycle bike1 = new Bicycle(1);
-        Bicycle bike2 = new Bicycle(2);
-        Bicycle bike3 = new Bicycle(3);
-        Bicycle bike4 = new Bicycle(4);
+        List goodsList=WorkingBas.get_GoodsList_InDB();
+        TGoods goodsItem=null;
+        
+        if(goodsList!=null){
             
-            bikes.add(bike0);
-            bikes.add(bike1);
-            bikes.add(bike2);
-            bikes.add(bike3);
-            bikes.add(bike4);
+            for(int i=0;i<goodsList.size();i++){
+                goodsItem=(TGoods) goodsList.get(i);
+                bikes.add(new Bicycle(goodsItem.getId().toString(),goodsItem.getTitle(),
+                goodsItem.getImg1(),goodsItem.getImg2(),goodsItem.getBrand(),goodsItem.getStyle()
+                ,goodsItem.getFrame(),goodsItem.getWheels(),goodsItem.getBrakes(),goodsItem.getFork()
+                ,goodsItem.getSpeeds(),goodsItem.getWeight(),goodsItem.getPrice()));
+                
+            }
+            
+        }
+        
+//        Bicycle bike0 = new Bicycle(0);
+//        Bicycle bike1 = new Bicycle(1);
+//        Bicycle bike2 = new Bicycle(2);
+//        Bicycle bike3 = new Bicycle(3);
+//        Bicycle bike4 = new Bicycle(4);
+//            
+//            bikes.add(bike0);
+//            bikes.add(bike1);
+//            bikes.add(bike2);
+//            bikes.add(bike3);
+//            bikes.add(bike4);
     }
     
     public Bicycle getItem(String id) {

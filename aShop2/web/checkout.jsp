@@ -95,7 +95,7 @@
                         </DIV>
 
                         <div class="typeCourier">
-                            <input id="address" type="textbox" value="Санкт-Петербург">
+                            <input id="address" type="textbox" maxlength="20" value="Санкт-Петербург">
                             <input type="button" class="option_Padding" value="<fmt:message key="SPECIFY_ADRESS" bundle="${bundle}"/>" onclick="codeAddress()">
                             <br/>
                             <input type="button" class="option_Padding_Button" value="<fmt:message key="NEXT" bundle="${bundle}"/>" onclick="accept_Adress_Text()">

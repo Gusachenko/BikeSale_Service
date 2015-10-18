@@ -53,8 +53,10 @@ public class WorkingBas extends HttpServlet {
             out.println("<h1>Servlet WorkingBas at " + request.getContextPath() + "</h1>");
    
                 
-//                addInDB("nameADD","productTitle","shop",222);
+//                add_Order_InDB("nameADD","productTitle","shop",222);
                getElementDB(1,out) ;
+               add_Goods_InDB("dasda2","dasda3","dasd4wwwwwwwwwwwwwvb","dasdasd5","dasdasd6",
+            "dasdasd7","dasdasd8","dasdasd9","dasdasd10","dasdasd11","dasdasd12","dasdasd13");
                 
                 
  
@@ -62,6 +64,8 @@ public class WorkingBas extends HttpServlet {
             out.println("</html>");
         
     }
+   
+/*TEST operations */    
     
 //private void updateInDB(Session session,PrintWriter out){
 //        List<TOrdering> list=session.createCriteria(TOrdering.class).list();
@@ -77,45 +81,6 @@ public class WorkingBas extends HttpServlet {
 //        out.print("<br>Updated:"+t.getIssueDate());
 //        
 //    }
-
-public static void addInDB(String userName_,String productTitle_,String shop_,int cost_){
-    
-            Connection c = null;
-            Statement stmt = null;
-        
-        try {
-            
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
-        
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        cal.add(Calendar.HOUR, 1);
-        Date date = cal.getTime();
-         
-        
-        String dateTime = dateFormat.format(date);
-        
-        
-        Class.forName("org.sqlite.JDBC");
-        c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
-        c.setAutoCommit(false);
-        System.out.println("Opened database successfully");
-
-        stmt = c.createStatement();
-        String sql = "INSERT INTO main.T_ORDERING (USER_NAME,PRODUCT_TITLE,ISSUE_DATE,SHOP,COST) " +
-                     "VALUES ('"+userName_+"', '"+productTitle_+"', '"+dateTime+"', '"+shop_+"',"+cost_+");"; 
-        stmt.executeUpdate(sql);
-
-
-        stmt.close();
-        c.commit();
-        c.close();
-                    
-        } catch (Exception e) {
-            e.printStackTrace();
-        } 
-}
 
 private void getElementDB(int element_key,PrintWriter out){
     try {
@@ -183,11 +148,51 @@ private void getElementDB(int element_key,PrintWriter out){
     
     
 }
+/*TEST END */
 
 
+/*T_ORDERING operations */
+public static void add_Order_InDB(String userName_,String productTitle_,String shop_,int cost_){
+    
+            Connection c = null;
+            Statement stmt = null;
+        
+        try {
+            
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        TimeZone.setDefault(TimeZone.getTimeZone("Europe/Moscow"));
+        
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.HOUR, 1);
+        Date date = cal.getTime();
+         
+        
+        String dateTime = dateFormat.format(date);
+        
+        
+        Class.forName("org.sqlite.JDBC");
+        c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
+        c.setAutoCommit(false);
+        System.out.println("Opened database successfully");
+
+        stmt = c.createStatement();
+        String sql = "INSERT INTO main.T_ORDERING (USER_NAME,PRODUCT_TITLE,ISSUE_DATE,SHOP,COST) " +
+                     "VALUES ('"+userName_+"', '"+productTitle_+"', '"+dateTime+"', '"+shop_+"',"+cost_+");"; 
+        stmt.executeUpdate(sql);
 
 
- public static List<TOrdering> getUserElementDB(String userName_){
+        stmt.close();
+        c.commit();
+        c.close();
+                    
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+}
+
+
+ public static List<TOrdering> getUser_Order_ElementDB(String userName_){
     
     if (userName_==null){
         userName_="NONE";
@@ -268,12 +273,12 @@ private void getElementDB(int element_key,PrintWriter out){
     
     return listUserElements;
 }
+/*T_ORDERING END */
 
 
 
 
-
-
+/*T_COMMENT operations */
 public static void addInCommentsDB(String userName_,String text_Comment_){
     
     Connection c = null;
@@ -294,7 +299,7 @@ public static void addInCommentsDB(String userName_,String text_Comment_){
         
                     
                     
-                     Class.forName("org.sqlite.JDBC");
+        Class.forName("org.sqlite.JDBC");
         c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/BikeSale_Service/DB/LiteDb/lbase.db");
         c.setAutoCommit(false);
         System.out.println("Opened database successfully");
@@ -386,9 +391,172 @@ public static List<TComments> getUserElement_CommentsDB(String userName_){
     
     return listUserElements;
 }
+/*T_COMMENT END */
 
 
 
+
+/*T_GOODS operations */
+public static void add_Goods_InDB(String title_,String img1_,String img2_,
+    String brand_,String style_,String frame_,String wheels_,String brakes_,
+    String fork_, String speeds_,String weight_,String price_){
+    
+    Connection c = null;
+    Statement stmt = null;
+        
+    try {
+    Class.forName("org.sqlite.JDBC");
+    c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/Bike"
+            + "Sale_Service/DB/LiteDb/lbase.db");
+    c.setAutoCommit(false);
+    System.out.println("Opened database successfully");
+    
+    
+    stmt = c.createStatement();
+    String sql = "INSERT INTO main.T_GOODS (title,img1,img2,brand,style,frame,"
+            + "wheels,brakes,fork,speeds,weight,price) " +
+            "VALUES ('"+title_+"','"+img1_+"','"+img2_+"','"+brand_+"','"+style_+"',"
+            + " '"+frame_+"', '"+wheels_+"', '"+brakes_+"','"+fork_+"', '"+speeds_+"'"
+            + ", '"+weight_+"', '"+price_+"')"; 
+    stmt.executeUpdate(sql);
+    
+    stmt.close();
+    c.commit();
+    c.close();
+                    
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+    
+}
+
+public static void del_Goods_InDB(int id){
+    
+    Connection c = null;
+    Statement stmt = null;
+        
+    try {
+    Class.forName("org.sqlite.JDBC");
+    c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/Bike"
+            + "Sale_Service/DB/LiteDb/lbase.db");
+    c.setAutoCommit(false);
+    System.out.println("Opened database successfully");
+    
+    
+    stmt = c.createStatement();
+    String sql = "DELETE FROM main.T_GOODS WHERE id="+id+";";
+            
+    stmt.executeUpdate(sql);
+    
+    stmt.close();
+    
+    
+    c.commit();
+    c.close();
+                    
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+    
+    
+    
+}
+
+public static void upd_Goods_InDB(int id_,String title_,String img1_,String img2_,String brand_
+    ,String style_,String frame_,String wheels_,String brakes_,String fork_,
+    String speeds_,String weight_,String price_){
+    
+    
+    Connection c = null;
+    Statement stmt = null;
+        
+    try {
+    Class.forName("org.sqlite.JDBC");
+    c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/Bike"
+            + "Sale_Service/DB/LiteDb/lbase.db");
+    c.setAutoCommit(false);
+    System.out.println("Opened database successfully");
+    
+    
+    stmt = c.createStatement();
+    String sql = "UPDATE main.T_GOODS SET  title='"+title_+"'"
+            + ",img1='"+img1_+"',img2='"+img2_+"',brand='"+brand_+"',"
+            + "style='"+style_+"',frame='"+frame_+"',"
+            + "wheels='"+wheels_+"',brakes='"+brakes_+"',fork='"+fork_+"',"
+            + "speeds='"+speeds_+"',weight='"+weight_+"',price='"+price_+"'" +
+            "WHERE id="+id_+";"; 
+    stmt.executeUpdate(sql);
+    
+    stmt.close();
+    c.commit();
+    c.close();
+                    
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+    
+    
+    
+}
+
+public static List<TGoods> get_GoodsList_InDB(){
+    
+    
+    Connection c = null;
+    Statement stmt = null;
+    
+    List listGoodsElements=null;
+        
+    try {
+    Class.forName("org.sqlite.JDBC");
+    c = DriverManager.getConnection("jdbc:sqlite:/home/huma/GitRep/BikeSale/Bike"
+            + "Sale_Service/DB/LiteDb/lbase.db");
+    c.setAutoCommit(false);
+    System.out.println("Opened database successfully");
+    
+    stmt = c.createStatement();
+    ResultSet rs = stmt.executeQuery( "SELECT * FROM main.T_GOODS;" );
+    
+    listGoodsElements=new ArrayList<TGoods>();
+    
+     while ( rs.next() ) {
+                    
+                     int id = rs.getInt("id");
+                     String  title = rs.getString("title");
+                     String img1  = rs.getString("img1");
+                     String img2  = rs.getString("img2");
+                     String brand  = rs.getString("brand");
+                     String style  = rs.getString("style");
+                     String frame  = rs.getString("frame");
+                     String wheels  = rs.getString("wheels");
+                     String brakes  = rs.getString("brakes");
+                     String fork  = rs.getString("fork");
+                     String speeds  = rs.getString("speeds");
+                     String weight  = rs.getString("weight");
+                     String price  = rs.getString("price");
+                     
+                     
+                     listGoodsElements.add(new TGoods(id,title,img1,img2,brand,
+                     style,frame,wheels,brakes,fork,speeds,weight,price));
+                     
+                  }
+                 
+                rs.close();
+                stmt.close();
+                c.close();
+                    
+    } catch (Exception e) {
+        e.printStackTrace();
+    } 
+    
+    
+    
+    
+    
+    return listGoodsElements;
+}
+
+/*T_GOODS END */
 
 
 
@@ -472,7 +640,7 @@ public static List<TComments> getUserElement_CommentsDB(String userName_){
     
     
     
-//    public static List<TOrdering> getUserElementDB(String userName_){
+//    public static List<TOrdering> getUser_Order_ElementDB(String userName_){
 //    
 //    if (userName_==null){
 //        userName_="NONE";

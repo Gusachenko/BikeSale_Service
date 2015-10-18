@@ -60,7 +60,7 @@
         String productTitle_=list.get(i).getTitle();      
         int  cost_=Integer.parseInt(list.get(i).getPrice());
         
-        WorkingBas.addInDB(userName_,productTitle_,shop_,cost_);
+        WorkingBas.add_Order_InDB(userName_,productTitle_,shop_,cost_);
         }
         %>
         <c:remove var="list" scope="session"></c:remove>

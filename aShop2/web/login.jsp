@@ -43,8 +43,9 @@
        <div class="div_auth">
        <form method="POST" action="j_security_check">
             <h3><fmt:message key="AUTH" bundle="${bundle}"/></h3>
-            <input placeholder="<fmt:message key="AUTH_LOGIN" bundle="${bundle}"/>" type="text" name="j_username"><br/>
-            <input placeholder="<fmt:message key="AUTH_PASS" bundle="${bundle}"/>" type="password" name="j_password"><br/>
+            <input placeholder="<fmt:message key="AUTH_LOGIN" bundle="${bundle}"/>" type="text" name="j_username" maxlength="12"><br/>
+            <input placeholder="<fmt:message key="AUTH_PASS" bundle="${bundle}"/>" type="password" name="j_password" maxlength="12"
+><br/>
             
             <input type="submit" value="<fmt:message key="NEXT" bundle="${bundle}"/>" ><br/>
                          

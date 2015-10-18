@@ -324,8 +324,8 @@
             <%}%>
                     <hr/>
                     <b><%=resourceBundle_ListItems.getString("COST_FILTER")%>:</b>
-                    <input name="lowCost" type="text" size="7" placeholder="<%=resourceBundle_ListItems.getString("COST_FILTER_MIN")%>" value="<%=lowCostCookie%>">
-                    <input name="maxCost" type="text" size="7" placeholder="<%=resourceBundle_ListItems.getString("COST_FILTER_MAX")%>" value="<%=maxCostCookie%>">
+                    <input name="lowCost" type="number" max="99999" min="1" size="7" placeholder="<%=resourceBundle_ListItems.getString("COST_FILTER_MIN")%>" value="<%=lowCostCookie%>">
+                    <input name="maxCost" type="number" max="99999" min="1" size="7" placeholder="<%=resourceBundle_ListItems.getString("COST_FILTER_MAX")%>" value="<%=maxCostCookie%>">
                     <span class=rouble>Р</span>
                     <hr/>
                     <button onclick="sendFilterValue()"><%=resourceBundle_ListItems.getString("ACCEPT_FILTER")%></button>

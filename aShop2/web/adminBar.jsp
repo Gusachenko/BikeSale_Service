@@ -44,9 +44,9 @@
                        
                            
                         <tr>
-                        <th ROWSPAN=3>id: <input type="text" size="5"> </th>
-                        <th>title: <input type="text" size="40"></th>
-                        <th>speeds: <input type="text" size="5"></th>
+                        <th ROWSPAN=3>id: <input type="number" min="0" max="999" size="5"> </th>
+                        <th>title: <input type="text" size="40" maxlength="20"></th>
+                        <th>speeds: <input type="number" min="0" max="99" size="5"></th>
                         <th>brand: 
                             <select>
                             <option>Cube</option>
@@ -71,7 +71,7 @@
                         
                         <tr>
                         <th>img1: <input type="file" name="photo1" size="5" multiple accept="image/*,image/jpeg"></th>
-                        <th>weight: <input type="text" size="5"></th>
+                        <th>weight: <input type="number" min="0" max="100" size="5"></th>
                         
                         
                        
@@ -102,7 +102,7 @@
                         
                          
                         
-                        <th>price: <input type="text" size="10"></th>
+                        <th>price: <input type="number" min="0" max="99999" size="10"></th>
                         
                         <th>frame: 
 
@@ -166,6 +166,7 @@
                     if (AllBicycles.getInstance()!=null){
                         for(int i=0;i<AllBicycles.getInstance().getAllSize();i++){
                            item = AllBicycles.getInstance().getItem(i+"");
+                           if(item!=null){
                            build_TableList.append("<tr>"+
                 "<th>"+item.getId()+"</th><th>"+item.getTitle()+"</th><th>"+item.getImg()+"</th><th>"+item.getImg2()+"</th>"+
                 "<th>"+item.getBrand()+"</th><th>"+item.getStyle()+"</th><th>"+item.getFrame()+"</th><th>"+item.getWheels()+"</th>"+
@@ -173,6 +174,7 @@
                 "<th>"+item.getPrice()+"</th>"+
                 "<th>EDIT</th><th>DEL</th>"+
                 "</tr>");
+                           }
                         }
                     }
                     out.println(build_TableList);
