@@ -1,8 +1,10 @@
-    <!DOCTYPE html>
+    
+<%@page import="main.AllBicycles"%>
+<!DOCTYPE html>
     <%@ page contentType="text/html;charset=UTF-8"%>
     
     <%@ page import="main.Bicycle"%>
-    <%@ page import="main.XmlStreamReader"%>
+    <%--<%@ page import="main.XmlStreamReader"%>--%>
     <%@ page import="java.io.InputStream"%>
     <%@ page import="java.io.File"%>
     <%@ page import="java.io.FileInputStream"%>
@@ -40,8 +42,10 @@
     <%-- COOKIES, LANG --%>
     <%
         // READ DATA FROM XML FILE. DATA WITH UNIQUE VARIABLES 
-        XmlStreamReader reader = new XmlStreamReader();
-        reader.readXml();
+//        XmlStreamReader reader = new XmlStreamReader();
+//        reader.readXml();
+        
+        AllBicycles b_Instance=AllBicycles.getInstance();
 
         
         // BUFFER VARIABLES FOR FILTER FUNCTION
@@ -160,16 +164,17 @@
              // END CHECK COOKIES
             count=0;
             // FILING
-            idArray=new String[reader.iter];
-            bufIdArray=new String[reader.iter];
-            for(int i=0;i<idArray.length;i++){idArray[i]=reader.getId(i);};
+            idArray=new String[b_Instance.getAllSize()];
+            bufIdArray=new String[b_Instance.getAllSize()];
+            for(int i=0;i<idArray.length;i++)
+            {idArray[i]=b_Instance.getItem(i+"").getId();};
             
             // APPLY VALUE FROM ARRAY BUFFER
             if(request.getParameter("valueBrand")==null && brandGroupArray==null){}else {
                         
             for(int i=0;i<idArray.length;i++){
             for(int j=0;j<brandGroupArray.length;j++){
-            if((reader.getBrand(Integer.parseInt(idArray[i])).equals((brandGroupArray[j])))){
+            if((b_Instance.getItem(Integer.parseInt(idArray[i])+"").getBrand().equals((brandGroupArray[j])))){
             idArray[count]=idArray[i];
             count++;        
             }}}
@@ -187,7 +192,7 @@
                         
             for(int i=0;i<idArray.length;i++){
             for(int j=0;j<styleGroupArray.length;j++){
-            if((reader.getStyle(Integer.parseInt(idArray[i])).equals((styleGroupArray[j])))){
+            if((b_Instance.getItem(Integer.parseInt(idArray[i])+"").getStyle().equals((styleGroupArray[j])))){
             idArray[count]=idArray[i];
             count++;        
             }}}
@@ -206,7 +211,7 @@
                         
             for(int i=0;i<idArray.length;i++){
             for(int j=0;j<wheelsGroupArray.length;j++){
-            if((reader.getWheels(Integer.parseInt(idArray[i])).equals((wheelsGroupArray[j])))){
+            if((b_Instance.getItem(Integer.parseInt(idArray[i])+"").getWheels().equals((wheelsGroupArray[j])))){
             idArray[count]=idArray[i];
             count++;        
             }}}
@@ -223,8 +228,8 @@
             if(lowCostCookie==""){lowC=0;}else{lowC=Integer.parseInt(lowCostCookie);}
             if(maxCostCookie==""){maxC=99999;}else{maxC=Integer.parseInt(maxCostCookie);}
             for(int i=0;i<idArray.length;i++){            
-            if(Integer.parseInt((reader.getPrice(Integer.parseInt(idArray[i])))) >= lowC &&
-            Integer.parseInt((reader.getPrice(Integer.parseInt(idArray[i])))) <= maxC){
+            if(Integer.parseInt((b_Instance.getItem(Integer.parseInt(idArray[i])+"").getPrice())) >= lowC &&
+            Integer.parseInt((b_Instance.getItem(Integer.parseInt(idArray[i])+"").getPrice())) <= maxC){
             idArray[count]=idArray[i];
             count++;        
             }}
@@ -266,61 +271,61 @@
             
             <span class="filter_name"><%=resourceBundle_ListItems.getString("MANUFACTURER")%></span><br/>
             <%
-            for (int i=0;i<reader.uniqueBrandCount;i++) {
+            for (int i=0;i<b_Instance.uniqueBrandCount;i++) {
             // проход по списку объектов для фильтра
             String checked = "";
             if (cookies==null || brandGroupArray==null){}else{
             for (int j = 0; j < brandGroupArray.length; j++){
-            if (reader.getUniqueBrand(i).equals(brandGroupArray[j])) {
+            if (b_Instance.getUniqueBrand(i).equals(brandGroupArray[j])) {
             // сравнение с выбранным id
             checked = "checked";
             }}}%>
                      
-            <input type="checkbox" name="brandGroup" value="<%=reader.getUniqueBrand(i)%>" <%=checked%>/>
-            <%=reader.getUniqueBrand(i)%><br/>
+            <input type="checkbox" name="brandGroup" value="<%=b_Instance.getUniqueBrand(i)%>" <%=checked%>/>
+            <%=b_Instance.getUniqueBrand(i)%><br/>
             <%}%>
     <hr/>
     
     <span class="filter_name"><%=resourceBundle_ListItems.getString("STYLE_TYPE")%></span><br/>
-    <%for (int i=0;i<reader.uniqueStyleCount;i++) {
+    <%for (int i=0;i<b_Instance.uniqueStyleCount;i++) {
             // проход по списку объектов для фильтра
             String checked = "";
             if (cookies==null || styleGroupArray==null){}else{     
             for (int j = 0; j < styleGroupArray.length; j++){
-            if (reader.getUniqueStyle(i).equals(styleGroupArray[j])){
+            if (b_Instance.getUniqueStyle(i).equals(styleGroupArray[j])){
             // сравнение с выбранным id
             checked = "checked";
             }}}%>                    
-            <input type="checkbox" name="styleGroup" value="<%=reader.getUniqueStyle(i)%>" <%=checked%>/>
-            <%if(reader.getUniqueStyle(i).equals("горный(MTB)")){%>
+            <input type="checkbox" name="styleGroup" value="<%=b_Instance.getUniqueStyle(i)%>" <%=checked%>/>
+            <%if(b_Instance.getUniqueStyle(i).equals("горный(MTB)")){%>
             <%=resourceBundle_ListItems.getString("STYLE_CC")%>
             <%}else 
-            if(reader.getUniqueStyle(i).equals("дорожный")){%>
+            if(b_Instance.getUniqueStyle(i).equals("дорожный")){%>
             <%=resourceBundle_ListItems.getString("STYLE_CITY_ROAD")%>
             <%}else 
-            if(reader.getUniqueStyle(i).equals("шоссейный")){%>
+            if(b_Instance.getUniqueStyle(i).equals("шоссейный")){%>
             <%=resourceBundle_ListItems.getString("STYLE_CYCLO_CROSS")%>
             
             <%}else{%>
-            <%=reader.getUniqueStyle(i)%>
+            <%=b_Instance.getUniqueStyle(i)%>
             <%}%><br/>
             <%}%>
     <hr/>
     
     <span class="filter_name"><%=resourceBundle_ListItems.getString("WHEELS_SIZE")%></span><br/>
     <%
-            for (int i=0;i<reader.uniqueWheelsCount;i++) {
+            for (int i=0;i<b_Instance.uniqueWheelsCount;i++) {
             // проход по списку объектов для фильтра
             String checked = "";
             if (cookies==null || wheelsGroupArray==null){}else{
             for (int j = 0; j < wheelsGroupArray.length; j++){
-            if (reader.getUniqueWheels(i).equals(wheelsGroupArray[j])) {
+            if (b_Instance.getUniqueWheels(i).equals(wheelsGroupArray[j])) {
             // сравнение с выбранным id
             checked = "checked";
             }}}%>
                      
-            <input type="checkbox" name="wheelsGroup" value="<%=reader.getUniqueWheels(i)%>" <%=checked%>/>
-            <%=reader.getUniqueWheels(i)%>"<br/>
+            <input type="checkbox" name="wheelsGroup" value="<%=b_Instance.getUniqueWheels(i)%>" <%=checked%>/>
+            <%=b_Instance.getUniqueWheels(i)%>"<br/>
             <%}%>
                     <hr/>
                     <b><%=resourceBundle_ListItems.getString("COST_FILTER")%>:</b>

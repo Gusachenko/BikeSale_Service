@@ -35,28 +35,28 @@ public class Bicycle implements BicyclesInf,Serializable {
     
     
     public Bicycle(int iter){
-        
-        XmlStreamReader reader = new XmlStreamReader();
-                       try {                  
-                          reader.readXml();
-                       } catch (Exception e) {
-                           // TODO: Add catch code
-                           e.printStackTrace();
-                       }
-
-        id=reader.getId(iter);        
-        tittle=reader.getTitle(iter);
-        imageOfBicycle=reader.getImg(iter);
-        imageOfBicycle2=reader.getImg2(iter);
-        brand=reader.getBrand(iter);
-        style=reader.getStyle(iter);
-        frame=reader.getFrame(iter);
-        wheels=reader.getWheels(iter);
-        brakes=reader.getBrakes(iter);
-        fork=reader.getFork(iter);
-        speeds=reader.getSpeeds(iter);
-        weight=reader.getWeight(iter);
-        price=reader.getPrice(iter);
+        System.out.println("BICYCLE JAVA!!!!!!!!!!!!!!!!!!!!!!!!!!!! CLASS");
+//        XmlStreamReader reader = new XmlStreamReader();
+//                       try {                  
+//                          reader.readXml();
+//                       } catch (Exception e) {
+//                           // TODO: Add catch code
+//                           e.printStackTrace();
+//                       }
+//
+//        id=reader.getId(iter);        
+//        tittle=reader.getTitle(iter);
+//        imageOfBicycle=reader.getImg(iter);
+//        imageOfBicycle2=reader.getImg2(iter);
+//        brand=reader.getBrand(iter);
+//        style=reader.getStyle(iter);
+//        frame=reader.getFrame(iter);
+//        wheels=reader.getWheels(iter);
+//        brakes=reader.getBrakes(iter);
+//        fork=reader.getFork(iter);
+//        speeds=reader.getSpeeds(iter);
+//        weight=reader.getWeight(iter);
+//        price=reader.getPrice(iter);
     }
     
     public Bicycle(){}

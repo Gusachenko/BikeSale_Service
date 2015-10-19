@@ -12,7 +12,7 @@
         <servlet-name>Lshop</servlet-name>
         <servlet-class>main.Lshop</servlet-class>
     </servlet>
-<!--    <servlet>
+    <!--    <servlet>
         <servlet-name>ProcessDB</servlet-name>
         <servlet-class>BASE.ProcessDB</servlet-class>
     </servlet>-->
@@ -20,11 +20,28 @@
         <servlet-name>WorkingBas</servlet-name>
         <servlet-class>dbase.WorkingBas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adminBar</servlet-name>
+        <servlet-class>main.adminBarServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Lshop</servlet-name>
         <url-pattern>/Lshop</url-pattern>
     </servlet-mapping>
-<!--    <servlet-mapping>
+    
+    
+<servlet>
+    <servlet-name>adminBarServlet</servlet-name>
+    <servlet-class>main.adminBarServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>adminBarServlet</servlet-name>
+    <url-pattern>/adminBarServlet</url-pattern>
+</servlet-mapping>
+    
+    
+    
+    <!--    <servlet-mapping>
         <servlet-name>ProcessDB</servlet-name>
         <url-pattern>/ProcessDB</url-pattern>
     </servlet-mapping>-->
@@ -32,12 +49,15 @@
         <servlet-name>WorkingBas</servlet-name>
         <url-pattern>/WorkingBas</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adminBar</servlet-name>
+        <url-pattern>/adminBar</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>
@@ -58,6 +78,4 @@
             <form-error-page>/eventError.jsp</form-error-page>
         </form-login-config>
     </login-config>
-   
-
 </web-app>

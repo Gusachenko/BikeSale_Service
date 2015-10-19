@@ -1,6 +1,9 @@
+
+<%@page import="main.Bicycle"%>
+<%@page import="main.AllBicycles"%>
 <!DOCTYPE html>
 
-<%@page import="main.XmlStreamReader"%>
+<%--<%@page import="main.XmlStreamReader"%>--%>
 <%@page import="java.io.InputStream"%>
 <%@page import="java.io.File"%>
 <%@page import="java.io.FileInputStream"%>
@@ -30,9 +33,12 @@
             iter = Integer.parseInt(request.getParameter("iter"));
         }
  
-if (iter==0){iter=0;};  
-        XmlStreamReader readerEl = new XmlStreamReader();
-        readerEl.readXml();       
+//if (iter==0){iter=0;};  
+//        XmlStreamReader readerEl = new XmlStreamReader();
+//        readerEl.readXml(); 
+        
+        
+        Bicycle b_item=AllBicycles.getInstance().getItem(iter+"");
     %>
     
      <script>
@@ -74,7 +80,7 @@ if (iter==0){iter=0;};
                 <div class="div_item-img">
                     <DIV class="div_item-img_pos">
                     <a href="Lshop?&iter=<%=iter%>">
-                        <img class="item-img" src="<%=readerEl.getImg(iter)%>" />
+                        <img class="item-img" src="<%=b_item.getImg()%>" />
                     </a>                   
                     </DIV>
                 </div>
@@ -82,20 +88,20 @@ if (iter==0){iter=0;};
                     
                     <DIV class="title_item">
                     <a href="Lshop?&iter=<%=iter%>">
-                        <b ><%=readerEl.getTitle(iter)%></b>
+                        <b ><%=b_item.getTitle()%></b>
                     </a>
                     </DIV>
                 
                 <div class="lft_List">
                     <ul>
-                    <li><%=readerEl.getBrand(iter)%></li>
-                    <li><%=readerEl.getStyle(iter)%></li>
-                    <li><%=readerEl.getFrame(iter)%></li>
-                    <li><%=readerEl.getWheels(iter)%>"</li>
-                    <li><%=readerEl.getBrakes(iter)%></li>
-                    <li><%=readerEl.getFork(iter)%></li>
-                    <li><%=readerEl.getSpeeds(iter)%></li>
-                    <li><%=readerEl.getWeight(iter)%></li>
+                    <li><%=b_item.getBrand()%></li>
+                    <li><%=b_item.getStyle()%></li>
+                    <li><%=b_item.getFrame()%></li>
+                    <li><%=b_item.getWheels()%>"</li>
+                    <li><%=b_item.getBrakes()%></li>
+                    <li><%=b_item.getFork()%></li>
+                    <li><%=b_item.getSpeeds()%> скорости</li>
+                    <li>вес: <%=b_item.getWeight()%> кг</li>
                     </ul>
                 </div>
                 
@@ -103,7 +109,7 @@ if (iter==0){iter=0;};
                     
                     <DIV class="rt_Realm_cost">
                         <DIV class="cost_div">
-                            <span id="cost"><%=readerEl.getPrice(iter)%></span><span class="rouble_item">Р</span>
+                            <span id="cost"><%=b_item.getPrice()%></span><span class="rouble_item">Р</span>
                         </DIV>
                     </DIV>
                     

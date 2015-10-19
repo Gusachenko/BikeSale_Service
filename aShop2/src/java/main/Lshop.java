@@ -118,14 +118,14 @@ public class Lshop extends HttpServlet {
         
         
         
-        XmlStreamReader reader = new XmlStreamReader();
-        try {                  
-           reader.readXml();
-        } catch (Exception e) {
-            // TODO: Add catch code
-            e.printStackTrace();
-        }
-
+//        XmlStreamReader reader = new XmlStreamReader();
+//        try {                  
+//           reader.readXml();
+//        } catch (Exception e) {
+//            // TODO: Add catch code
+//            e.printStackTrace();
+//        }
+        Bicycle b_item=AllBicycles.getInstance().getItem(iter+"");
 
         { ////////////////////////////////////////////////////////////////////////// content
             out.println("<div id=\"content\">");
@@ -143,21 +143,21 @@ public class Lshop extends HttpServlet {
                 out.println("<div id=\"info\">\n" + "<span id=\"intro\"><p>\n"
                     +        
                     "<ul>\n" +
-                    "                <li>"+reader.getBrand(iter)+"</li>\n" + 
-                    "                <li>"+reader.getStyle(iter)+"</li>\n" + 
+                    "                <li>"+b_item.getBrand()+"</li>\n" + 
+                    "                <li>"+b_item.getStyle()+"</li>\n" + 
                     "</ul>\n"
                     +
                     "</p></span>\n" + "<span id=\"about\"><p>\n" +
                                 
                     "<ul>\n" +   
-                    "                <li>"+reader.getBrand(iter)+"</li>\n" + 
-                    "                <li>"+reader.getStyle(iter)+"</li>\n" + 
-                    "                <li>"+reader.getFrame(iter)+"</li>\n" + 
-                    "                <li>"+reader.getWheels(iter)+"\"</li>\n" + 
-                    "                <li>"+reader.getBrakes(iter)+"</li>\n" + 
-                    "                <li>"+reader.getFork(iter)+"</li>\n" + 
-                    "                <li>"+reader.getSpeeds(iter)+"</li>\n" + 
-                    "                <li>"+reader.getWeight(iter)+"</li>\n" + 
+                    "                <li>"+b_item.getBrand()+"</li>\n" + 
+                    "                <li>"+b_item.getStyle()+"</li>\n" + 
+                    "                <li>"+b_item.getFrame()+"</li>\n" + 
+                    "                <li>"+b_item.getWheels()+"\"</li>\n" + 
+                    "                <li>"+b_item.getBrakes()+"</li>\n" + 
+                    "                <li>"+b_item.getFork()+"</li>\n" + 
+                    "                <li>"+b_item.getSpeeds()+" : speeds</li>\n" + 
+                    "                <li>вес: "+b_item.getWeight()+" кг</li>\n" + 
                     "</ul>\n"+
                             
                             "</p></span>\n" +
@@ -167,7 +167,7 @@ public class Lshop extends HttpServlet {
 
             }
 
-            out.println("<span id=\"cost\">"+reader.getPrice(iter)+"</span><span class=rouble>Р</span>");
+            out.println("<span id=\"cost\">"+b_item.getPrice()+"</span><span class=rouble>Р</span>");
             out.println("<div class=\"addOrder\">");
 //            &#8399;
   
@@ -198,8 +198,8 @@ public class Lshop extends HttpServlet {
         out.println("<div id=\"photoOfGoods\">");
 
         out.println("        <div class=\"fotorama\">\n" + 
-        "          <img src=\""+reader.getImg(iter)+"\">\n" + 
-        "          <img src=\""+reader.getImg2(iter)+"\">\n" + 
+        "          <img src=\""+b_item.getImg()+"\">\n" + 
+        "          <img src=\""+b_item.getImg2()+"\">\n" + 
         "        </div>");
         
         out.println("</div>");
