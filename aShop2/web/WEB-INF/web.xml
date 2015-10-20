@@ -28,19 +28,14 @@
         <servlet-name>Lshop</servlet-name>
         <url-pattern>/Lshop</url-pattern>
     </servlet-mapping>
-    
-    
-<servlet>
-    <servlet-name>adminBarServlet</servlet-name>
-    <servlet-class>main.adminBarServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>adminBarServlet</servlet-name>
-    <url-pattern>/adminBarServlet</url-pattern>
-</servlet-mapping>
-    
-    
-    
+    <servlet>
+        <servlet-name>adminBarServlet</servlet-name>
+        <servlet-class>main.adminBarServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminBarServlet</servlet-name>
+        <url-pattern>/adminBarServlet</url-pattern>
+    </servlet-mapping>
     <!--    <servlet-mapping>
         <servlet-name>ProcessDB</servlet-name>
         <url-pattern>/ProcessDB</url-pattern>
@@ -78,4 +73,8 @@
             <form-error-page>/eventError.jsp</form-error-page>
         </form-login-config>
     </login-config>
+    <security-role>
+        <description/>
+        <role-name>admin</role-name>
+    </security-role>
 </web-app>

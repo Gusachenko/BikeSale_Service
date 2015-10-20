@@ -103,11 +103,11 @@ public class adminBarServlet extends HttpServlet {
         p_id = Integer.parseInt(request.getParameter("post_id"));
         p_title = new String(request.getParameter("post_title").getBytes("ISO-8859-1"), "UTF-8");
         if(request.getParameter("post_img1")!=null){
-            p_img1 = "img/bicycles/road/"+new String(request.getParameter("post_img1").getBytes("ISO-8859-1"), "UTF-8");
-        }else p_img1="img/bicycles/road/";               
+            p_img1 = "img/bicycles/"+new String(request.getParameter("post_img1").getBytes("ISO-8859-1"), "UTF-8");
+        }else p_img1="img/bicycles/";               
         if(request.getParameter("post_img2")!=null){
-            p_img2 = "img/bicycles/road/"+new String(request.getParameter("post_img1").getBytes("ISO-8859-1"), "UTF-8");
-        }else p_img2="img/bicycles/road/";
+            p_img2 = "img/bicycles/"+new String(request.getParameter("post_img2").getBytes("ISO-8859-1"), "UTF-8");
+        }else p_img2="img/bicycles/";
         p_brand = new String(request.getParameter("post_brand").getBytes("ISO-8859-1"), "UTF-8");
         p_style = new String(request.getParameter("post_style").getBytes("ISO-8859-1"), "UTF-8");
         p_frame = new String(request.getParameter("post_frame").getBytes("ISO-8859-1"), "UTF-8");

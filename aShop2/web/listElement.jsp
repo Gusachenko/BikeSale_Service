@@ -100,7 +100,7 @@
                     <li><%=b_item.getWheels()%>"</li>
                     <li><%=b_item.getBrakes()%></li>
                     <li><%=b_item.getFork()%></li>
-                    <li><%=b_item.getSpeeds()%> скорости</li>
+                    <li><%=b_item.getSpeeds()%> speeds</li>
                     <li>вес: <%=b_item.getWeight()%> кг</li>
                     </ul>
                 </div>

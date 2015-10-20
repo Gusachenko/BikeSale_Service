@@ -190,7 +190,7 @@
                         </tr>
                         
                         <tr>
-                        <th>img1: <input <%=isInputDisabled%> name="post_img1" type="file" name="photo1" size="5"  accept="image/*,image/jpeg"></th>
+                        <th>img1: <input <%=isInputDisabled%> name="post_img1" type="file"  size="5"  accept="image/*,image/jpeg"></th>
                         <th>weight: <input <%=isInputDisabled%> name="post_weight" type="number" min="0" max="100" size="5" value="<%=p_weight%>"></th>
                         
                         
@@ -218,7 +218,7 @@
                         </tr>
                         
                         <tr>
-                        <th>img2: <input <%=isInputDisabled%> name="post_img2" type="file" name="photo1" size="5"  accept="image/*,image/jpeg"></th>
+                        <th>img2: <input <%=isInputDisabled%> name="post_img2" type="file"  size="5"  accept="image/*,image/jpeg"></th>
                         
                          
                         
