@@ -36,27 +36,24 @@ public class Bicycle implements BicyclesInf,Serializable {
     
     public Bicycle(int iter){
         System.out.println("BICYCLE JAVA!!!!!!!!!!!!!!!!!!!!!!!!!!!! CLASS");
-//        XmlStreamReader reader = new XmlStreamReader();
-//                       try {                  
-//                          reader.readXml();
-//                       } catch (Exception e) {
-//                           // TODO: Add catch code
-//                           e.printStackTrace();
-//                       }
-//
-//        id=reader.getId(iter);        
-//        tittle=reader.getTitle(iter);
-//        imageOfBicycle=reader.getImg(iter);
-//        imageOfBicycle2=reader.getImg2(iter);
-//        brand=reader.getBrand(iter);
-//        style=reader.getStyle(iter);
-//        frame=reader.getFrame(iter);
-//        wheels=reader.getWheels(iter);
-//        brakes=reader.getBrakes(iter);
-//        fork=reader.getFork(iter);
-//        speeds=reader.getSpeeds(iter);
-//        weight=reader.getWeight(iter);
-//        price=reader.getPrice(iter);
+        
+        Bicycle item=AllBicycles.getInstance().getItem(iter+"");
+        
+        
+
+        id=item.getId();        
+        tittle=item.getTitle();
+        imageOfBicycle=item.getImg();
+        imageOfBicycle2=item.getImg2();
+        brand=item.getBrand();
+        style=item.getStyle();
+        frame=item.getFrame();
+        wheels=item.getWheels();
+        brakes=item.getBrakes();
+        fork=item.getFork();
+        speeds=item.getSpeeds();
+        weight=item.getWeight();
+        price=item.getPrice();
     }
     
     public Bicycle(){}
@@ -82,6 +79,7 @@ public class Bicycle implements BicyclesInf,Serializable {
     @Override
     public String getImg2() {
         // TODO Implement this method
+        
         return imageOfBicycle2;
     }
     
@@ -153,9 +151,17 @@ public class Bicycle implements BicyclesInf,Serializable {
     @Override
     public void setTitle(String valueTittle) {
         // TODO Implement this method
+        if(this.tittle!=valueTittle){
+        
         this.tittle=valueTittle;
+        }
+                   
     }
 
+    
+    
+    
+    
     @Override
     public void setImg(String valueImg) {
         // TODO Implement this method
@@ -164,9 +170,27 @@ public class Bicycle implements BicyclesInf,Serializable {
     
     @Override
     public void setImg2(String valueImg) {
-        // TODO Implement this method
-        this.imageOfBicycle2=valueImg;
+        // TODO Implement this method     
+        if(isImg2_Enable(valueImg)){
+            this.imageOfBicycle2=valueImg;
+        }
+        
     }
+       
+    @Override
+    public boolean isImg2_Enable(String valueImg){
+        
+         if(this.imageOfBicycle!=valueImg){
+            return true;
+        }else{
+            this.imageOfBicycle2=this.tittle;
+            return false;
+        }
+
+    }
+    
+    
+    
     
     @Override
     public void setBrand(String valueBrand) {

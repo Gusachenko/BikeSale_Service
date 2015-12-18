@@ -11,6 +11,11 @@ public class ListItemBicycles implements Serializable{
    public ListItemBicycles() {
         list = new ArrayList<Bicycle>();
     }
+   
+   public ListItemBicycles(Bicycle item) {
+        list = new ArrayList<Bicycle>();
+        list.add(item);
+    }
     
     public ArrayList<Bicycle> getList(){
         return list;

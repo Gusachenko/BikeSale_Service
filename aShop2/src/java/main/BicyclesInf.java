@@ -20,8 +20,12 @@ public interface BicyclesInf {
     
     public String getId();
     public String getTitle();
+    
     public String getImg();
     public String getImg2();
+    public boolean isImg2_Enable(String valueImg);
+    
+    
     public String getBrand();
     public String getStyle();
     public String getFrame();
